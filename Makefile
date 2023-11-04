@@ -44,10 +44,10 @@ BONUS := ft_lstnew.c \
 		ft_lstadd_back.c \
 		ft_lstdelone.c \
 		ft_lstclear.c \
-		ft_lstiter.c
+		ft_lstiter.c \
+		ft_lstmap.c
 
-HEADERS := libft.h \
-		test.h
+HEADERS := libft.h
 
 OBJS := $(SRCS:.c=.o)
 OBONUS := $(BONUS:.c=.o)
@@ -62,10 +62,6 @@ $(NAME): $(OBJS)
 
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
-
-test: all test.c test
-	$(CC) $(CFLAGS) -o test test.c -L. -lft
-	./test
 
 clean:
 	rm -rf $(OBJS)
