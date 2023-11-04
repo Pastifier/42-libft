@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+/*
+	Returns a string which is the result of joining
+ 	`s1` and `s2`
+
+  	(Both strings must be true C strings).
+*/
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*self;
