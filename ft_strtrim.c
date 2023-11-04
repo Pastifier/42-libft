@@ -14,6 +14,10 @@
 
 static bool	in_set(char c, const char *set);
 
+/*
+	Trims all successive-occurences of any character in
+ 	`set` from the start and end of the true C string `s`.
+*/
 char	*ft_strtrim(const char *s1, const char *set)
 {
 	char	*self;
