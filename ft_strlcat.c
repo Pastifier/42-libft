@@ -17,7 +17,7 @@
  	If the destination buffer, limited by its size, isn't
   	large enough to hold the copy, the resulting string is truncated
    	(but it is guaranteed to be null-terminated).
-    	They return the length of the total string they tried to create.
+    	It returns the length of the total string they tried to create.
 
      	(The programmer is responsible for inputting an accurate size).
 */
