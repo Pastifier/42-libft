@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2023/11/04 18:27:11 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/05 00:57:47 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
  * 									*
  ************************************/
 // DONE!
+
 int		ft_isalpha(int c); // done.
 int		ft_isdigit(int c); // done.
 int		ft_isalnum(int c); // done.
