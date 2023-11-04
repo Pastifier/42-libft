@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+/*
+	Returns a new string which is the result of applying
+ 	the function `f` on each character of the string `s`.
+
+  	(`s` must be a true C string, and `f` must be valid.)
+*/
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
 	char	*self;
