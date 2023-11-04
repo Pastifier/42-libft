@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+/*
+	Returns the amount of characters in the
+ 	true C string `str` (null-terminated).
+
+  	(NULL on invalid `str` input).
+ */
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;
