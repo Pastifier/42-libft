@@ -12,6 +12,14 @@
 
 #include "libft.h"
 
+/*
+	Searches the string `s` for the first occurence of
+ 	the character `c`.
+
+  	(`s` must be a true, null-terminated, C string).
+   	(`c` is typecasted to `char`, so using non-ASCII values
+    	is pretty-much useless).
+*/
 char	*ft_strchr(const char *s, int c)
 {
 	char	*ptr;
