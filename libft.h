@@ -24,13 +24,13 @@
  * 									*
  ************************************/
 // DONE!
-int		ft_isalpha(int c); // done
-int		ft_isdigit(int c); // done
-int		ft_isalnum(int c); // done
-int		ft_isascii(int c); // done
-int		ft_isprint(int c); // done
-char	ft_toupper(int c); // done
-char	ft_tolower(int c); // done
+int		ft_isalpha(int c); // done.
+int		ft_isdigit(int c); // done.
+int		ft_isalnum(int c); // done.
+int		ft_isascii(int c); // done.
+int		ft_isprint(int c); // done.
+char	ft_toupper(int c); // done.
+char	ft_tolower(int c); // done.
 // DONE!
 
 /************************************
@@ -89,7 +89,7 @@ void	ft_putnbr_fd(int n, int fd); // done.
  *		SECTION 3: BONUS			*
  * 									*
  ************************************/
-
+// DONE!
 /*
  * Node struct. I don't know why my boss didn't
  * just let me name it "node" or something...
@@ -108,5 +108,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new); // done.
 void	ft_lstdelone(t_list *lst, void (*del)(void *)); // done.
 void	ft_lstclear(t_list **lst, void (*del)(void *)); // done.
 void	ft_lstiter(t_list *lst, void (*f)(void *)); // done.
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *)); // done.
+// DONE!
 #endif // !LIBFT_H
