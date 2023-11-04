@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+/*
+	Applies the function `f` on every character in
+ 	the character array: `s`.
+
+  	(`s` must be a true C string, `f` must be valid).
+*/
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	int	i;
