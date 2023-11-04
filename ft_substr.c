@@ -41,6 +41,6 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		return (NULL);
 	while (i < len)
 		self[i++] = s[start++];
-	self[i] = '\0';
+	self[i] = 0;
 	return (self);
 }
