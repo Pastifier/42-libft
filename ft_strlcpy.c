@@ -12,6 +12,15 @@
 
 #include "libft.h"
 
+/*
+	Copies the input string into a destination string.
+ 	If the destination buffer, limited by its size, isn't
+  	large enough to hold the copy, the resulting string is truncated
+   	(but it is guaranteed to be null-terminated).
+    	It returns the length of the total string they tried to create.
+
+     	(The programmer is responsible for inputting an accurate size).
+*/
 size_t	ft_strlcpy(char *dst, const char *src, size_t sz)
 {
 	size_t	i;
