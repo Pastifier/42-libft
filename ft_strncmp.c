@@ -12,6 +12,15 @@
 
 #include <stdlib.h>
 
+/*
+	Compares `n` bytes of `s1` and `s2` and returns the
+ 	difference of the first non-equal value
+  	(difference of the first difference hehe).
+
+   	This function is NOT safe, and you should use it only when
+    	you're sure of the size. Not using true C strings will
+     	cause undefined behaviour!!
+*/
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
