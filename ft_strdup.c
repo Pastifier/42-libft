@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+/*
+	Returns a duplicate to the string `s1`
+ 	(idk why it's prototyped as such).
+
+  	(`s1` must be a true C string).
+*/
 char	*ft_strdup(const char *s1)
 {
 	char	*self;
