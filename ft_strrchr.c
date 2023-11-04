@@ -12,6 +12,10 @@
 
 #include "libft.h"
 
+/*
+	Works exactly like ft_strchr, but locates the last
+ 	occurence of `c` (as opposed to its first occurence).
+*/
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*ptr;
