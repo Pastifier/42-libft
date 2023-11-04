@@ -12,6 +12,16 @@
 
 #include "libft.h"
 
+
+/*
+	Searches `haystack` for the first occurence of `needle`, and
+ 	returns a pointer to that address, or NULL if `needle`
+  	doesn't exist in `haystack`. If `needle` is empty,
+   	a pointer to `haystack` is returned.
+ 	
+  	This function uses ft_strncmp for its implementation, so
+  	make sure the inputs are true C strings (see ft_strncmp).
+*/
 char	*ft_strnstr(const char *haystack, const char *needle, size_t haylen)
 {
 	size_t	needle_len;
