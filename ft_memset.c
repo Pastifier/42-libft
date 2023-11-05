@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:44:35 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/04 17:44:36 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/05 23:52:51 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 	Fills the first n bytes of the memory area pointed
 	to by `s` with the constant byte `c`.
 	
-	(Feeding it an invalid pointer is undefined behaviour).
+	This function is NOT safe! Only use it when you're
+	sure `n` is within the range of memory you're allowed
+	after `s`.
+	(It's on the user to provide valid inputs. Otherwise,
+	it's undefined behaviour).
 */
 void	*ft_memset(void *s, int c, size_t n)
 {

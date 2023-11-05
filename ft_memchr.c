@@ -6,16 +6,16 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:43:11 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/04 17:43:12 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/05 23:55:13 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	Searches a block of memory of, size `n` bytes,
-	for the first occurence of `c`, and returns a
-	pointer to that location.
+	Searches the first `n` bytes of the memory region 
+	pointed to by `s` for the first occurence of `c`, 
+	and returns a pointer to that location.
 	Returns a NULL pointer if fed an invalid `s` value.
 	
 	(`c` is casted into an `unsigned char`, so providing

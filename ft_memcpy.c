@@ -6,17 +6,18 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:43:28 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/04 17:43:29 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 00:14:47 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	copies n bytes from memory area src to memory area dest.
-	The memory areas must not overlap, and `n` has to be positive.
+	Copies `n` bytes from memory area `src` to memory area `dst`.
+	The memory areas must not overlap, and `n` has to be positive
+	(see ft_memmove).
 
-	Returns a pointer to dst if dst is valid. Otherwise, NULL is returned.
+	Returns a pointer to `dst` if `dst` is valid. Otherwise, NULL is returned.
 */
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

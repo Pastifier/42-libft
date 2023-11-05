@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2023/11/05 23:38:43 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 00:33:02 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,18 +161,93 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t haylen);
 
 /************************************
  * 									*
- *		SECTION 1.c: <stdlib.h>     *
+ * 					 <string.h>		*
+ *		SECTION 1.c:				*
+ * 					 <stdlib.h>		*
  * 									*
  ************************************/
 
-void	ft_bzero(void *s, size_t n); // done (hopefully)
-void	*ft_memset(void *s, int c, size_t n); // done. (go back to bzero)
-void	*ft_memchr(const void *s, int c, size_t n); // done.
-void	*ft_memcpy(void *dst, const void *src, size_t n); // done.
-void	*ft_memmove(void *dst, const void *src, size_t n); // done (hopefully)
-int		ft_memcmp(const void *p1, const void *p2, size_t n); // done.
-char	*ft_strdup(const char *str); // done.
-void	*ft_calloc(size_t nmemb, size_t n); // done.
+/*
+ * Fill the first `n` bytes of memory the memory region
+ 	pointed to by `s` with zeroes(value).
+ 
+	This function is NOT safe! Only use it when you're
+	sure `n` is within the range of memory you're allowed
+	after `s`.
+ * (It's on the user to provide valid inputs. Otherwise,
+ 	it's undefined behaviour).
+ */
+void	ft_bzero(void *s, size_t n);
+
+/*
+	Fills the first n bytes of the memory area pointed
+	to by `s` with the constant byte `c`.
+	
+	This function is NOT safe! Only use it when you're
+	sure `n` is within the range of memory you're allowed
+	after `s`.
+	(It's on the user to provide valid inputs. Otherwise,
+	it's undefined behaviour).
+*/
+void	*ft_memset(void *s, int c, size_t n);
+
+/*
+	Searches the first `n` bytes of the memory region 
+	pointed to by `s` for the first occurence of `c`, 
+	and returns a pointer to that location.
+	Returns a NULL pointer if fed an invalid `s` value.
+	
+	(`c` is casted into an `unsigned char`, so providing
+	lower or higher values is undefined behaviour).
+*/
+void	*ft_memchr(const void *s, int c, size_t n);
+
+/*
+	Copies `n` bytes from memory area `src` to memory area `dst`.
+	The memory areas must not overlap, and `n` has to be positive
+	(see ft_memmove).
+
+	Returns a pointer to `dst` if `dst` is valid. Otherwise, NULL is returned.
+*/
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+
+/*
+	Copies `n` bytes from memory area `src` to memory area `dst`. 
+	
+	The memory areas may overlap: copying takes place as though the
+	bytes in `src` are first copied into a temporary array that does
+	not overlap `src` or `dst`, and the bytes are then copied
+	from the temporary array to `dst`.
+
+	Returns a pointer to `dst`, NULL if either dst or src aren't valid.
+*/
+void	*ft_memmove(void *dst, const void *src, size_t n);
+
+/*
+	Compares two memory regions of size `n`.
+
+	Returns  an  integer less than, equal to, or greater than zero
+	if the first n bytes of s1 is found, respectively, to be less than, to match,
+	or be greater than the first n bytes of s2.
+
+	(Feeding it invalid pointers is undefined behaviour).
+*/
+int		ft_memcmp(const void *p1, const void *p2, size_t n);
+
+/*
+	Returns a duplicate to the string `str`
+
+  	(`str` must be a true C string).
+*/
+char	*ft_strdup(const char *str);
+
+/*
+ * Allocates memory for an array of nmemb elements of `n` bytes each 
+ * and returns a pointer to the allocated memory, and the memory is 
+ * filled with zeroes (value). 
+ * If `nmemb` or `n` is 0, NULL is returned.
+ */
+void	*ft_calloc(size_t nmemb, size_t n);
 
 /*
  * Takes a true C string (null-terminated) and converts it to its
@@ -190,14 +265,14 @@ void	*ft_calloc(size_t nmemb, size_t n); // done.
  * EXAMPLE OF VALID INPUT:
  * "       -20001"
  */
-int		ft_atoi(const char *str); // done.
-// DONE!!
+int		ft_atoi(const char *str);
 
 /************************************
  * 									*
  *		SECTION 2: EPIC GUYS        *
  * 									*
  ************************************/
+
 char	*ft_substr(const char *s, unsigned int start, size_t len); // done.
 char	*ft_strjoin(const char *s1, const char *s2); // done.
 char	*ft_strtrim(const char *s1, const char *set); // done.
@@ -215,7 +290,7 @@ void	ft_putnbr_fd(int n, int fd); // done.
  *		SECTION 3: BONUS			*
  * 									*
  ************************************/
-// DONE!
+
 /*
  * Node struct. I don't know why my boss didn't
  * just let me name it "node" or something...
