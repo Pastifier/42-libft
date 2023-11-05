@@ -6,14 +6,14 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:00:56 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/04 18:00:57 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/05 23:28:31 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	Works exactly like ft_strchr, but locates the last
+	Works exactly like `ft_strchr`, but locates the last
  	occurence of `c` (as opposed to its first occurence).
 */
 char	*ft_strrchr(const char *s, int c)
