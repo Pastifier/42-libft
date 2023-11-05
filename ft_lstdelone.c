@@ -18,11 +18,16 @@
 
  * (Feeding it an invalid node or function pointer will cause it to do nothing).
  * (Using a non-deleting function is undefined behaviour).
+ * (Deleting a node in the middle/start of the list, will cause a memory-leak;
+ * since you won't be able to access the successive nodes anymore).
  */
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
+	char *tmp;
+
 	if (!del || !lst)
 		return ;
+	tmp = lst->next;
 	(*del)(lst->content);
 	free(lst);
 }
