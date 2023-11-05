@@ -6,12 +6,11 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:27:30 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/05 02:25:43 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/05 23:25:44 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 /*
 	Returns a new list with `f` applied on `lst` and

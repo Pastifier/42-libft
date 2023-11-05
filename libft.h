@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2023/11/05 02:30:04 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/05 23:25:08 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,64 @@
  ************************************/
 // DONE!
 
+/*
+* Returns `1` if `c` is an alphabet, and `0` otherwise.
+* 
+* The function casts `c` to a `char` while performing the check,
+* so using anything but ASCII values is pretty much useless. 
+*/
 int		ft_isalpha(int c); // done.
+
+/*
+* Returns `1` if `c` is a digit, and `0` otherwise.
+* 
+* The function casts `c` to a `char` while performing the check,
+* so using anything but ASCII values is pretty much useless. 
+*/
 int		ft_isdigit(int c); // done.
+
+/*
+* Returns `1` if `c` is alphanumeric, and `0` otherwise.
+* 
+* The function casts `c` to a `char` while performing the check,
+* so using anything but ASCII values is pretty much useless. 
+*/
 int		ft_isalnum(int c); // done.
+
+/*
+* Returns `1` if `c` is within ASCII range, and `0` otherwise.
+* 
+* This is a legacy function, and is pretty much useless if you're not
+* strictly operating on integers.
+
+* (Although you could probably do some cool maths stuff with it).
+*/
 int		ft_isascii(int c); // done.
+
+/*
+* Returns `1` if `c` represents a printable character
+* according to the ASCII table, and `0` otherwise. 
+*/
 int		ft_isprint(int c); // done.
+
+/*
+	Returns the uppercase variant of a lowercase character.
+	If the character is not alphabetic, the same character
+	is returned.
+
+	(This function casts `c` to a `char` in its implementation,
+	so using non-ASCII values is pretty-much useless).
+*/
 char	ft_toupper(int c); // done.
+
+/*
+	Returns the lowercase variant of an uppercase character.
+	If the character is not alphabetic, the same character
+	is returned.
+
+	(This function casts `c` to a `char` in its implementation,
+	so using non-ASCII values is pretty-much useless).
+*/
 char	ft_tolower(int c); // done.
 // DONE!
 
@@ -65,6 +117,23 @@ void	*ft_memmove(void *dst, const void *src, size_t n); // done (hopefully)
 int		ft_memcmp(const void *p1, const void *p2, size_t n); // done.
 char	*ft_strdup(const char *str); // done.
 void	*ft_calloc(size_t nmemb, size_t n); // done.
+
+/*
+ * Takes a true C string (null-terminated) and converts it to its
+ * integer representation.
+ * Whitespace at the start will be ignored, and non-digit characters will stop
+ * execution if present anywhere within the string.
+ * 
+ * (If the resulting int representation is not within 
+ * INT_MIN to INT_MAX, it's undefined behaviour).
+ * 
+ * 
+ * EXAMPLE OF INVALID INPUT:
+ * "   sdf -+29skj"
+ * 
+ * EXAMPLE OF VALID INPUT:
+ * "       -20001"
+ */
 int		ft_atoi(const char *str); // done.
 // DONE!!
 
@@ -109,6 +178,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new); // done.
 void	ft_lstdelone(t_list *lst, void (*del)(void *)); // done.
 void	ft_lstclear(t_list **lst, void (*del)(void *)); // done.
 void	ft_lstiter(t_list *lst, void (*f)(void *)); // done.
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *)); // done.
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 // DONE!
 #endif // !LIBFT_H

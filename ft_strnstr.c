@@ -6,12 +6,11 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:00:49 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/04 18:00:50 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/05 23:07:17 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 /*
 	Searches `haystack` for the first occurence of `needle`, and
