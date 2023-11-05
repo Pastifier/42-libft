@@ -32,4 +32,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		*lst = curr->next;
 		ft_lstdelone(curr, del);
 	}
+	*lst = NULL;
 }
