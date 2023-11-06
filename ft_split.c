@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:45:14 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/06 14:04:13 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:06:44 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int wordlen(const char *str, char c)
 	return (i);
 }
 
-bool allocate_each(char ***self_ptr, const char *str, char c, size_t *success /*initialised outside and modified to know how many str[i]'s to free*/)
+bool allocate_each(char ***self_ptr, const char *str, char c, size_t *success)
 {
     size_t  i;
     size_t	j;
