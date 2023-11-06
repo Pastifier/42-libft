@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2023/11/06 07:01:12 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 07:12:33 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -371,13 +371,86 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+
+/*
+ * Initialises your list and returns a pointer to work with.
+ * The node's value is represented by `content`.
+ * (`content` can be of any base type).
+ * The next node is set to NULL by default.
+ * Returns NULL on allocation failure and thus makes the list invalid.
+
+ * (Performing operations on an invalid list is undefined behaviour).
+ */
 t_list	*ft_lstnew(void *content);
+
+/*
+ * Takes a pointer to a list, and sets `new` as the head of that list.
+
+ * (Previous content gets pushed after the new head).
+ * (Feeding it an invalid `lst` pointer will cause it to do nothing).
+ * (Feeding it an invalid node is undefined behaviour).
+ */
 void	ft_lstadd_front(t_list **lst, t_list *new);
+
+/*
+ * Takes the head and returns the number of nodes in the list.
+
+ * (Feeding it an invalid head pointer is undefined behaviour).
+ */
 int		ft_lstsize(t_list *lst);
+
+/*
+ * Takes the head of a list and returns the last node in that list.
+
+ * (The final node in your list should point to NULL)
+ * (Feeding it an invalid head/list is undefined behaviour/infinite loop).
+ */
 t_list	*ft_lstlast(t_list *lst);
+
+/*
+ * Appends a node to the end of the list and sets its `next` value to
+ * NULL by default.
+
+ * (If `lst` is invalid, it does nothing).
+ * (Feeding it an invalid node is undefined behaviour).
+ */
 void	ft_lstadd_back(t_list **lst, t_list *new);
+
+/* 
+ * Takes a node and applies `del` to its contents (usually a deleting function)
+ * and frees the node `free(3)`
+
+ * (Feeding it an invalid node or function pointer will cause it to do nothing).
+ * (Using a non-deleting function is undefined behaviour).
+ * (Deleting a node in the middle/start of the list, will cause a memory-leak;
+ * since you won't be able to access the successive nodes anymore).
+ */
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
+
+/*
+	Deletes and frees the given node and every
+	successor of that node, using the function `del`
+	and `free(3)`.
+
+	(If either `del`, `lst`, or `*lst` are invalid, nothing happens).
+	(Feeding it a non-deletion function is undefined behaviour).
+*/
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+/*
+	Applies the function to `lst`'s contents, and
+	all its subsequent nodes.
+
+	(Feeding it an invalid node/function pointer will result in nothing).
+*/
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+/*
+	Returns a new list with `f` applied on `lst` and
+	all its subsequent nodes. Returns NULL, and frees
+	memory on error.
+
+	(`lst` must be a valid list).
+*/
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #endif // !LIBFT_H
