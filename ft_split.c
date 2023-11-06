@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:45:14 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/06 14:20:17 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:30:35 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	free_all(char ***self_ptr, size_t successes)
 {
 	char	***dummy;
 
+	dummy = self_ptr;
 	while (successes--)
 	{
 		free(**dummy);
