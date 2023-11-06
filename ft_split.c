@@ -6,20 +6,36 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:45:14 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/06 13:34:41 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:04:13 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
+// Calculates the amount of words in the string.
+// (A word is a sequence of characters preceding the delimiter: `c`).
+// @param str: The string to split.
+// @param c: The delimiter character.
 static int	wordcount(const char *str, char c);
+
+// Calculates the length of the first word in the string.
+// (A word is a sequence of characters preceding the delimiter: `c`).
+// @param str: The string to split.
+// @param c: The delimiter character.
 static int	wordlen(const char *str, char c);
-static bool	allocate_each(char ***self, const char *str, char c, size_t *success);
-static void	free_all(char ***self, size_t successes); //frees all strings [0, successes].
-/* TODO:
- * (REWORK FT_SPLIT).
- */
+
+// Takes care of all the allocations. Returns `true` if something went wrong; false otherwise.
+// `true` was chosen for failure to make ft_split more readable.
+// @param self_ptr: The address of the string array. Passed like so, to handle it from outside the scope.
+// @param str: The string to split.
+// @param success: The address of the variable storing the number of successful string allocations.
+static bool	allocate_each(char ***self_ptr, const char *str, char c, size_t *success);
+
+// Frees everything. Called upon failure (`allocate_each(...) == true`).
+// @param self_ptr: The address of the string array. Passed like so, to handle it from outside the scope.
+// @param successes: The number of successful allocations, i.e. the number of times to call `free`.
+static void	free_all(char ***self_ptr, size_t successes);
 
 char	**ft_split(const char *s, char c)
 {
@@ -37,14 +53,6 @@ char	**ft_split(const char *s, char c)
 	return (self);
 }
 
-void	use_wordcount(const char *str, char delim)
-{
-	printf("%d\n", wordcount(str, delim));
-}
-
-/*
-	Counts the amount of segments split by `c` in `str`.
-*/
 int	wordcount(const char *str, char c)
 {
 	int	count;
@@ -76,36 +84,39 @@ int wordlen(const char *str, char c)
 	return (i);
 }
 
-bool allocate_each(char ***self, const char *str, char c, size_t *success /*initialised outside and modified to know how many str[i]'s to free*/)
+bool allocate_each(char ***self_ptr, const char *str, char c, size_t *success /*initialised outside and modified to know how many str[i]'s to free*/)
 {
     size_t  i;
     size_t	j;
 
     i = -1;
-    *self = malloc(sizeof(char *) * wordcount(str, c) + 1);
-	if (!*self)
+    *self_ptr = malloc(sizeof(char *) * (wordcount(str, c) + 1));
+	if (!*self_ptr)
 		return (true);
-    while (*self[++i])
+    while (*self_ptr[++i])
 	{
 		j = -1;
-		*self[i] = malloc(sizeof(char) * wordlen(str, c) + 1);
-		if (!*self[i])
+		*self_ptr[i] = malloc(sizeof(char) * (wordlen(str, c) + 1));
+		if (!*self_ptr[i])
 			return (true);
 		while(*str != c)
-			*self[i][++j] = *str++;
-		*self[i][j] = 0;
+			*self_ptr[i][++j] = *str++;
+		*self_ptr[i][j] = 0;
 		++str;
 		*success += 1;
 	}
-	*self[i] = 0;
+	*self_ptr[i] = 0;
 	return (false);
 }
 
-void	free_all(char ***self, size_t successes)
+void	free_all(char ***self_ptr, size_t successes)
 {
+	char	***dummy;
+
 	while (successes--)
 	{
-		free(**self);
-		(*self)++;
+		free(**dummy);
+		(*dummy)++;
 	}
+	free(*self_ptr);
 }
