@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2023/11/06 07:12:33 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:21:35 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -300,6 +300,15 @@ char	*ft_strjoin(const char *s1, const char *s2);
  	`set` from the start and end of the true C string `s`.
 */
 char	*ft_strtrim(const char *s1, const char *set);
+
+/*
+	Takes a string `s`, and returns an array of all its substrings split
+ 	by the delimiter `c`.
+
+	(E.g. "Hello, World!" would return {"Hello", " World!"}).
+	@param s: The string to split.
+	@param c: The delimiter character.
+*/
 char	**ft_split(const char *s, char c); // check...
 
 /*
