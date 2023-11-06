@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:39:55 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/06 00:27:46 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 12:01:20 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ void	*ft_calloc(size_t nmemb, size_t n)
 	size_t	total_size;
 
 	total_size = n * nmemb;
+	if (!total_size)
+		return (NULL);
+	if (nmemb > SIZE_MAX / n)
+		return (NULL);
 	self = malloc(total_size);
 	if (!self)
 		return (NULL);
