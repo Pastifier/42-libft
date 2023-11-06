@@ -122,7 +122,7 @@ void	free_all(char **self_ptr, size_t successes)
 	while (successes--)
 	{
 		free(*dummy);
-		(*dummy)++;
+		dummy++;
 	}
 	free(self_ptr);
 }
