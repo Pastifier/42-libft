@@ -67,7 +67,7 @@ clean:
 	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME) test
+	rm -rf $(NAME)
 
 re: fclean $(NAME)
 
