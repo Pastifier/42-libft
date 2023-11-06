@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2023/11/06 00:33:02 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 07:01:12 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -273,17 +273,87 @@ int		ft_atoi(const char *str);
  * 									*
  ************************************/
 
-char	*ft_substr(const char *s, unsigned int start, size_t len); // done.
-char	*ft_strjoin(const char *s1, const char *s2); // done.
-char	*ft_strtrim(const char *s1, const char *set); // done.
+/*
+	Returns a new string of size `len` that starts from
+ 	`s[start]` and ends at `s[len - 1]`.
+
+  	Providing invalid input (out-of-range) should be undefined
+   	behaviour, but I handled those cases for my own future use:
+    - Providing an index that's larger than the string length
+      will result in an empty string.
+	- Providing a size which is larger than the string length
+ 	  will force the size to shrink back to the string's true
+      length (provided it's a true C string).
+*/
+char	*ft_substr(const char *s, unsigned int start, size_t len);
+
+/*
+	Returns a string which is the result of joining
+ 	`s1` and `s2`
+
+  	(Both strings must be true C strings).
+*/
+char	*ft_strjoin(const char *s1, const char *s2);
+
+/*
+	Trims all successive-occurences of any character in
+ 	`set` from the start and end of the true C string `s`.
+*/
+char	*ft_strtrim(const char *s1, const char *set);
 char	**ft_split(const char *s, char c); // check...
-char	*ft_itoa(int n); // done.
-char	*ft_strmapi(const char *s, char (*f)(unsigned int, char)); // done.
-void	ft_striteri(char *s, void (*f)(unsigned int, char*)); // done.
-void	ft_putchar_fd(char c, int fd); // done.
-void	ft_putstr_fd(char *s, int fd); // done.
-void	ft_putendl_fd(char *s, int fd); // done.
-void	ft_putnbr_fd(int n, int fd); // done.
+
+/*
+	Converts an integer `n` to its ASCII representation,
+	and returns a string of that representation.
+
+	(Feeding it a non-integer value is undefined behaviour).
+*/
+char	*ft_itoa(int n);
+
+/*
+	Returns a new string which is the result of applying
+ 	the function `f` on each character of the string `s`.
+
+  	(`s` must be a true C string, and `f` must be valid.)
+*/
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
+
+/*
+	Applies the function `f` on every character in
+ 	the character array: `s`.
+
+  	(`s` must be a true C string, `f` must be valid).
+*/
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+/*
+	Writes the character `c` into the file descriptor `fd`.
+
+	(Invalid `fd` values will cause it to do nothing). 
+*/
+void	ft_putchar_fd(char c, int fd);
+
+/*
+	Writes the character `c` into the file descriptor `fd`.
+
+	(Invalid `fd` values will cause it to do nothing). 
+*/
+void	ft_putstr_fd(char *s, int fd);
+
+/*
+	Writes the string `s` into the file descriptor `fd`, 
+	followed by a newline character.
+
+	(Feeding it an invalid string or `fd` will cause it to do nothing).
+*/
+void	ft_putendl_fd(char *s, int fd);
+
+/*
+	Writes the integer `int` into the file descriptor `fd`.
+
+	(Invalid `fd` values will cause it to do nothing). 
+*/
+void	ft_putnbr_fd(int n, int fd);
 
 /************************************
  * 									*
@@ -301,14 +371,13 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-t_list	*ft_lstnew(void *content); // done.
-void	ft_lstadd_front(t_list **lst, t_list *new); // done.
-int		ft_lstsize(t_list *lst); // done.
-t_list	*ft_lstlast(t_list *lst); // done.
-void	ft_lstadd_back(t_list **lst, t_list *new); // done.
-void	ft_lstdelone(t_list *lst, void (*del)(void *)); // done.
-void	ft_lstclear(t_list **lst, void (*del)(void *)); // done.
-void	ft_lstiter(t_list *lst, void (*f)(void *)); // done.
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-// DONE!
 #endif // !LIBFT_H
