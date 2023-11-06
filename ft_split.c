@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:45:14 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/06 14:30:35 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:23:11 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,29 +79,29 @@ int wordlen(const char *str, char c)
 	int	i;
 
 	i = 0;
-	while (str[i] || str[i] != c)
+	while (str[i] && str[i] != c)
 		++i;
 	return (i);
 }
 
 bool allocate_each(char ***self_ptr, const char *str, char c, size_t *success)
 {
-    size_t  i;
-    size_t	j;
+    int  i;
+    int	j;
 
     i = -1;
-    *self_ptr = malloc(sizeof(char *) * (wordcount(str, c) + 1));
+    *self_ptr = calloc(wordcount(str, c) + 1, sizeof(char *));  
 	if (!*self_ptr)
 		return (true);
     while (*self_ptr[++i])
 	{
 		j = -1;
-		*self_ptr[i] = malloc(sizeof(char) * (wordlen(str, c) + 1));
-		if (!*self_ptr[i])
+		(*self_ptr)[i] = calloc(wordlen(str, c) + 1, sizeof(char));
+		if (!(*self_ptr)[i])
 			return (true);
-		while(*str != c)
-			*self_ptr[i][++j] = *str++;
-		*self_ptr[i][j] = 0;
+		while(*str && *str != c)
+			(*self_ptr)[i][++j] = *str++;
+		(*self_ptr)[i][j] = 0;
 		++str;
 		*success += 1;
 	}
@@ -120,4 +120,15 @@ void	free_all(char ***self_ptr, size_t successes)
 		(*dummy)++;
 	}
 	free(*self_ptr);
+}
+
+#include <stdio.h>
+int main(void)
+{
+	const char *src = "Hello, World!,epic,boi";
+	char **strs = ft_split(src, ',');
+
+	int i = -1;
+	while (strs[++i])
+		printf("%d : %s\n", i, strs[i]);
 }
