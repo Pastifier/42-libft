@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:39:03 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/04 17:39:04 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:33:27 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,6 @@
 
 static int	is_white(int c);
 
-/*
- * Takes a true C string (null-terminated) and converts it to its
- * integer representation.
- * Whitespace at the start will be ignored, and non-digit characters will stop
- * execution if present anywhere within the string.
- * 
- * (If the resulting int representation is not within 
- * INT_MIN to INT_MAX, it's undefined behaviour).
- * 
- * 
- * EXAMPLE OF INVALID INPUT:
- * "   sdf -+29skj"
- * 
- * EXAMPLE OF VALID INPUT:
- * "       -20001"
- */
 int	ft_atoi(const char *str)
 {
 	int	sign;
