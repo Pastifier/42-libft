@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:45:14 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/06 12:23:21 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:34:41 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static int	wordcount(const char *str, char c);
 static int	wordlen(const char *str, char c);
 static bool	allocate_each(char ***self, const char *str, char c, size_t *success);
-static void	free_all(char **self, size_t successes); //frees all strings [0, successes].
+static void	free_all(char ***self, size_t successes); //frees all strings [0, successes].
 /* TODO:
  * (REWORK FT_SPLIT).
  */
@@ -25,9 +25,16 @@ char	**ft_split(const char *s, char c)
 {
 	char	**self;
 	size_t	successes;
+	bool	abort;
 	
 	successes = 0;
-	return (NULL);
+	abort = allocate_each(&self, s, c, &successes);
+	if (abort)
+	{
+		free_all(&self, successes);
+		return (NULL);
+	}
+	return (self);
 }
 
 void	use_wordcount(const char *str, char delim)
@@ -76,17 +83,29 @@ bool allocate_each(char ***self, const char *str, char c, size_t *success /*init
 
     i = -1;
     *self = malloc(sizeof(char *) * wordcount(str, c) + 1);
+	if (!*self)
+		return (true);
     while (*self[++i])
 	{
 		j = -1;
 		*self[i] = malloc(sizeof(char) * wordlen(str, c) + 1);
 		if (!*self[i])
-			return (false);
+			return (true);
 		while(*str != c)
 			*self[i][++j] = *str++;
 		*self[i][j] = 0;
 		++str;
+		*success += 1;
 	}
 	*self[i] = 0;
-	return (true);
+	return (false);
+}
+
+void	free_all(char ***self, size_t successes)
+{
+	while (successes--)
+	{
+		free(**self);
+		(*self)++;
+	}
 }
