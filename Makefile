@@ -53,7 +53,7 @@ OBJS := $(SRCS:.c=.o)
 OBONUS := $(BONUS:.c=.o)
 NAME := libft.a
 
-.PHONY: all clean fclean re bonus test
+.PHONY: all clean fclean re bonus
 
 all: $(NAME) clean
 
