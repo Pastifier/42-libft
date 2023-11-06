@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:45:14 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/06 18:02:49 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:08:51 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ char	**ft_split(const char *s, char c)
 	if (abort)
 	{
 		free_all(self, successes);
-		free(self);
 		return (NULL);
 	}
 	return (self);
