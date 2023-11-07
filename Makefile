@@ -49,8 +49,8 @@ BONUS := ft_lstnew.c \
 
 HEADERS := libft.h
 
-OBJS := $(SRCS:.c=.o)
-OBONUS := $(BONUS:.c=.o)
+OBJS := $(SRCS:c=o)
+OBONUS := $(BONUS:c=o)
 NAME := libft.a
 
 .PHONY: all clean fclean re bonus
@@ -58,7 +58,7 @@ NAME := libft.a
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $@ $(OBJS)
+	ar -rcs $@ $<
 
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -72,4 +72,4 @@ fclean: clean
 re: fclean $(NAME)
 
 bonus: $(OBJS) $(OBONUS)
-	ar rcs $(NAME) $(OBJS) $(OBONUS)
+	ar -rcs $(NAME) $< $>
