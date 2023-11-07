@@ -32,9 +32,8 @@ char	*ft_itoa(int n)
 	self = ft_calloc(11 + sign, sizeof(char));
 	if (!self)
 		return (NULL);
-	if (n == 0)
-		self[0] = 0;
-	length = 0;
+	self[0] = 0;
+	length = 1;
 	while (n != 0)
 	{
 		self[length++] = '0' + absolute(n % 10);
