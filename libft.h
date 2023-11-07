@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2023/11/07 10:43:27 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:55:37 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 # include <stdint.h>
 
 /************************************
- * 									*
- *		SECTION 1.a: <ctype.h>      *
- * 									*
+ *                                  *
+ *      SECTION 1.a: <ctype.h>      *
+ *                                  *
  ************************************/
 
 /*
@@ -86,9 +86,9 @@ char	ft_toupper(int c);
 char	ft_tolower(int c);
 
 /************************************
- * 									*
- *		SECTION 1.b: <string.h>     *
- * 									*
+ *                                  *
+ *      SECTION 1.b: <string.h>     *
+ *                                  *
  ************************************/
 
 /*
@@ -161,11 +161,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t sz);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t haylen);
 
 /************************************
- * 									*
- * 					 <string.h>		*
- *		SECTION 1.c:				*
- * 					 <stdlib.h>		*
- * 									*
+ *                                  *
+ *                   <string.h>     *
+ *      SECTION 1.c:                *
+ *                   <stdlib.h>     *
+ *                                  *
  ************************************/
 
 /*
@@ -269,9 +269,9 @@ void	*ft_calloc(size_t nmemb, size_t n);
 int		ft_atoi(const char *str);
 
 /************************************
- * 									*
+ *                                  *
  *		SECTION 2: EPIC GUYS        *
- * 									*
+ *                                  *
  ************************************/
 
 /*
@@ -366,9 +366,9 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 /************************************
- * 									*
- *		SECTION 3: BONUS			*
- * 									*
+ *                                  *
+ *      SECTION 3: BONUS            *
+ *                                  *
  ************************************/
 
 /*
