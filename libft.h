@@ -17,6 +17,7 @@
 # include <stdbool.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdint.h>
 
 /************************************
  * 									*
