@@ -6,18 +6,12 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:44:50 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/06 13:15:38 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:30:52 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	Writes the string `s` into the file descriptor `fd`, 
-	followed by a newline character.
-
-	(Feeding it an invalid string or `fd` will cause it to do nothing).
-*/
 void	ft_putendl_fd(char *s, int fd)
 {
 	if (!s || fd < 0)

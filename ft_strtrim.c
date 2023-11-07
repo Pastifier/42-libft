@@ -6,20 +6,16 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:01:02 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/06 09:03:25 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:32:58 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Checks whether the character `c` is a
+// member of the string `set`.
 static bool	in_set(char c, const char *set);
 
-/*
-	Trims all successive-occurences of any character in
- 	`set` from the start and end of the true C string `s`.
-
-	(Feeding it non-true C strings is undefined behaviour)
-*/
 char	*ft_strtrim(const char *s1, const char *set)
 {
 	char	*self;

@@ -3,24 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:59:28 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/05 23:34:25 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:31:34 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	Catenates the input string into a destination string.
- 	If the destination buffer, limited by its size, isn't
-  	large enough to hold the copy, the resulting string is truncated
-   	(but it is guaranteed to be null-terminated).
-    It returns the length of the total string they tried to create.
-
-    (The programmer is responsible for inputting an accurate size).
-*/
 size_t	ft_strlcat(char *dst, const char *src, size_t sz)
 {
 	size_t	null_dst;

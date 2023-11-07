@@ -3,22 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:00:00 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/05 23:30:26 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:31:43 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	Returns the amount of characters in the
- 	true C string `str` (null-terminated).
-
-  	(NULL on invalid `str` input).
-	(Not using a true C string will cause undefined behaviour).
- */
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;

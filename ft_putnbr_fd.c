@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:44:58 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/04 17:44:59 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:30:57 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	Writes the integer `int` into the file descriptor `fd`.
-
-	(Invalid `fd` values will cause it to do nothing). 
-*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == INT_MIN)

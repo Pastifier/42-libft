@@ -3,21 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:59:17 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/04 17:59:18 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:31:29 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	Returns a string which is the result of joining
- 	`s1` and `s2`
-
-  	(Both strings must be true C strings).
-*/
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*self;

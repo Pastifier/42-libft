@@ -3,24 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:41:09 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/04 17:41:10 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:29:28 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+	Reverses `str`.
+*/
 static void	revstr(char *str);
-static int	absolute(int nbr);
 
 /*
-	Converts an integer `n` to its ASCII representation,
-	and returns a string of that representation.
-
-	(Feeding it a non-integer value is undefined behaviour).
+	Returns the absolute value of `nbr`.
 */
+static int	absolute(int nbr);
+
 char	*ft_itoa(int n)
 {
 	char	*self;

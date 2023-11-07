@@ -3,24 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:00:41 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/05 23:29:16 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:31:50 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-/*
-	Compares `n` bytes of `s1` and `s2` and returns the
- 	difference of the first non-equal value
-  	(difference of the first difference hehe).
-
-   	This function is NOT safe, and you should use it only when
-    you're sure of the size. Not using true C strings will
-    cause undefined behaviour!!
-*/
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;

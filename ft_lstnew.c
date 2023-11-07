@@ -3,24 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:42:53 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/04 17:42:54 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:30:12 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
- * Initialises your list and returns a pointer to work with.
- * The node's value is represented by `content`.
- * (`content` can be of any base type).
- * The next node is set to NULL by default.
- * Returns NULL on allocation failure and thus makes the list invalid.
-
- * (Performing operations on an invalid list is undefined behaviour).
- */
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*self;

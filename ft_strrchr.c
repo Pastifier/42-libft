@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:00:56 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/05 23:28:31 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:32:01 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	Works exactly like `ft_strchr`, but locates the last
- 	occurence of `c` (as opposed to its first occurence).
-*/
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*ptr;

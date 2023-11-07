@@ -3,24 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:43:11 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/05 23:55:13 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:30:26 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	Searches the first `n` bytes of the memory region 
-	pointed to by `s` for the first occurence of `c`, 
-	and returns a pointer to that location.
-	Returns a NULL pointer if fed an invalid `s` value.
-	
-	(`c` is casted into an `unsigned char`, so providing
-	lower or higher values is undefined behaviour).
-*/
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*self;

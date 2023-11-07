@@ -3,22 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:27:30 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/05 23:25:44 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:30:09 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	Returns a new list with `f` applied on `lst` and
-	all its subsequent nodes. Returns NULL, and frees
-	memory on error.
-
-	(`lst` must be a valid list).
-*/
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*head;

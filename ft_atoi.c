@@ -6,13 +6,16 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:39:03 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/06 18:33:27 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:27:36 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_white(int c);
+/*
+	Returns true if a character is whitespace.
+*/
+static bool	is_white(int c);
 
 int	ft_atoi(const char *str)
 {
@@ -37,7 +40,7 @@ int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-int	is_white(int c)
+bool	is_white(int c)
 {
 	return (c == ' ' || c == '\t' || c == '\n'
 		|| c == '\r' || c == '\v' || c == '\f');
