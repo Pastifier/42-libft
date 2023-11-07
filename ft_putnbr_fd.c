@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:44:58 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 11:30:57 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:40:53 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == INT_MIN)
+	{
 		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
 	else if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
