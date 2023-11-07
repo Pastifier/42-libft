@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:59:52 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 15:13:19 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:23:33 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t sz)
 	if (src_len > --sz)
 		src_len = sz;
 	i = -1;
-	while (++i < src_len)
+	while (++i < src_len && dst[i])
 		dst[i] = src[i];
 	dst[i] = 0;
 	return (src_len);
