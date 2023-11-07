@@ -58,7 +58,7 @@ NAME := libft.a
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rcs $@ $<
+	ar -rcs $@ $(OBJS)
 
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -72,4 +72,4 @@ fclean: clean
 re: fclean $(NAME)
 
 bonus: $(OBJS) $(OBONUS)
-	ar -rcs $(NAME) $< $>
+	ar -rcs $(NAME) $(OBJS) $(OBONUS)
