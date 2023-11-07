@@ -37,7 +37,7 @@ char	*ft_itoa(int n)
 	length = 0;
 	while (n != 0)
 	{
-		self[++length] = '0' + absolute(n % 10);
+		self[length++] = '0' + absolute(n % 10);
 		n = (n / 10);
 	}
 	if (sign)
