@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:00:56 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 11:32:01 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 14:00:42 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strrchr(const char *s, int c)
 
 	ptr = (char *)s;
 	store = NULL;
-	if (!ptr)
-		return (NULL);
 	while (*ptr)
 	{
 		if (*ptr == (char)c)

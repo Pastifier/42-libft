@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2023/11/08 13:57:55 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 13:59:59 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ int	ft_tolower(int c);
   	(`s` must be a true, null-terminated, C string).
    	(`c` is typecasted to `char`, so using non-ASCII values
     is pretty-much useless).
+	(Violating the above warnings or feeding it invalid pointers
+	is undefined behaviour).
 */
 char	*ft_strchr(const char *s, int c);
 
