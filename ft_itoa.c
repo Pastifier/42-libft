@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:41:09 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/08 14:57:33 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:42:40 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ short	digitnum(int nbr)
 	if (!nbr)
 		return (1);
 	if (nbr == INT_MIN)
-		return (7);
+		return (10);
 	while (nbr)
 	{
 		++count;

@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:01:02 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 11:32:58 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:37:18 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_strtrim(const char *s1, const char *set)
 	size_t	end;
 	size_t	i;
 
+	if (!s1 || !set)
+		return (NULL);
 	start = 0;
 	while (s1[start] && in_set(s1[start], set))
 		start++;
