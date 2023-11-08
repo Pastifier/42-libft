@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:45:14 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 10:42:35 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 13:18:34 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,14 +129,3 @@ void	free_all(char **self_ptr, size_t successes)
 	}
 	free(self_ptr);
 }
-
-// #include <stdio.h>
-// int main(void)
-// {
-// 	const char *src = ",,,,Kufta,,,,Hello";
-// 	char **strs = ft_split(src, ',');
-
-// 	int i = -1;
-// 	while (strs[++i])
-// 		printf("%d : %s\n", i, strs[i]);
-// }
