@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:43:11 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 11:30:26 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 13:53:17 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*self;
 
-	if (!s)
-		return (NULL);
 	self = (unsigned char *)s;
 	while (n--)
 	{

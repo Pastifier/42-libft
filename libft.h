@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2023/11/08 13:42:42 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 13:57:55 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,22 @@
 
 /*
 * Returns `1` if `c` is an alphabet, and `0` otherwise.
-* 
-* The function casts `c` to a `char` while performing the check,
-* so using anything but ASCII values is pretty much useless. 
+*
+* (ASCII REPRESENTED)
 */
 int		ft_isalpha(int c);
 
 /*
 * Returns `1` if `c` is a digit, and `0` otherwise.
 * 
-* The function casts `c` to a `char` while performing the check,
-* so using anything but ASCII values is pretty much useless. 
+* (ASCII REPRESENTED)
 */
 int		ft_isdigit(int c);
 
 /*
 * Returns `1` if `c` is alphanumeric, and `0` otherwise.
 * 
-* The function casts `c` to a `char` while performing the check,
-* so using anything but ASCII values is pretty much useless. 
+* (ASCII REPRESENTED)
 */
 int		ft_isalnum(int c);
 
@@ -70,8 +67,7 @@ int		ft_isprint(int c);
 	If the character is not alphabetic, the same character
 	is returned.
 
-	(This function casts `c` to a `char` in its implementation,
-	so using non-ASCII values is pretty-much useless).
+	(ASCII REPRESENTED)
 */
 int	ft_toupper(int c);
 
@@ -80,8 +76,7 @@ int	ft_toupper(int c);
 	If the character is not alphabetic, the same character
 	is returned.
 
-	(This function casts `c` to a `char` in its implementation,
-	so using non-ASCII values is pretty-much useless).
+	(ASCII REPRESENTED)
 */
 int	ft_tolower(int c);
 
@@ -122,7 +117,6 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 	Returns the amount of characters in the
  	true C string `str` (null-terminated).
 
-  	(NULL on invalid `str` input).
 	(Not using a true C string will cause undefined behaviour).
  */
 size_t	ft_strlen(const char *str);
@@ -208,7 +202,8 @@ void	*ft_memchr(const void *s, int c, size_t n);
 	The memory areas must not overlap, and `n` has to be positive
 	(see ft_memmove).
 
-	Returns a pointer to `dst` if `dst` is valid. Otherwise, NULL is returned.
+	Returns a pointer to `dst`.
+	(Feeding it invalid pointers is undefined behaviour).
 */
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 
@@ -220,7 +215,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 	not overlap `src` or `dst`, and the bytes are then copied
 	from the temporary array to `dst`.
 
-	Returns a pointer to `dst`, NULL if either dst or src aren't valid.
+	Returns a pointer to `dst`.
+	(Feeding it invalid pointers is undefined behaviour).
 */
 void	*ft_memmove(void *dst, const void *src, size_t n);
 
@@ -233,7 +229,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n);
 
 	(Feeding it invalid pointers is undefined behaviour).
 */
-int		ft_memcmp(const void *p1, const void *p2, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /*
 	Returns a duplicate to the string `str`
