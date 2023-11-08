@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:41:09 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 11:29:28 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 14:57:33 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ static void	revstr(char *str);
 */
 static int	absolute(int nbr);
 
+/*
+	Returns the number of digits in nbr.
+*/
+static short	digitnum(int nbr);
+
 char	*ft_itoa(int n)
 {
 	char	*self;
@@ -29,7 +34,7 @@ char	*ft_itoa(int n)
 	size_t	length;
 
 	sign = (n < 0);
-	self = ft_calloc(11 + sign, sizeof(char));
+	self = ft_calloc(digitnum(n) + sign + 1, sizeof(char));
 	if (!self)
 		return (NULL);
 	if (n == 0)
@@ -38,10 +43,10 @@ char	*ft_itoa(int n)
 		return (self);
 	}
 	length = 0;
-	while (n != 0)
+	while (n)
 	{
 		self[length++] = '0' + absolute(n % 10);
-		n = (n / 10);
+		n /= 10;
 	}
 	if (sign)
 		self[length] = '-';
@@ -70,4 +75,21 @@ void	revstr(char *str)
 		str[i] = str[len - i - 1];
 		str[len - i - 1] = tmp;
 	}
+}
+
+short	digitnum(int nbr)
+{
+	short	count;
+	
+	count = 0;
+	if (!nbr)
+		return (1);
+	if (nbr == INT_MIN)
+		return (7);
+	while (nbr)
+	{
+		++count;
+		nbr /= 10;
+	}
+	return (count);
 }
