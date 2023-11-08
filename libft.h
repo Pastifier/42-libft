@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2023/11/08 13:59:59 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:25:02 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -314,7 +314,7 @@ char	**ft_split(const char *s, char c); // check...
 	Converts an integer `n` to its ASCII representation,
 	and returns a string of that representation.
 
-	(Feeding it a non-integer value is undefined behaviour).
+	(Feeding it a non-`int` value is undefined behaviour).
 */
 char	*ft_itoa(int n);
 
