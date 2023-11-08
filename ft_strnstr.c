@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:00:49 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 11:31:56 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 13:33:57 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t haylen)
 {
 	size_t	needle_len;
 
+	if (!haylen && !haystack)
+		return (NULL);
 	needle_len = ft_strlen(needle);
 	if (!(needle[0]))
 		return ((char *)haystack);

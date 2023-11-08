@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2023/11/07 11:55:37 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 13:42:42 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		ft_isprint(int c);
 	(This function casts `c` to a `char` in its implementation,
 	so using non-ASCII values is pretty-much useless).
 */
-char	ft_toupper(int c);
+int	ft_toupper(int c);
 
 /*
 	Returns the lowercase variant of an uppercase character.
@@ -83,7 +83,7 @@ char	ft_toupper(int c);
 	(This function casts `c` to a `char` in its implementation,
 	so using non-ASCII values is pretty-much useless).
 */
-char	ft_tolower(int c);
+int	ft_tolower(int c);
 
 /************************************
  *                                  *

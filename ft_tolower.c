@@ -6,13 +6,13 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:01:35 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 11:33:15 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 13:42:49 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if (!ft_isalpha(c) || (char)c >= 'a')
 		return (c);
