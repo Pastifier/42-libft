@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:41:09 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/08 15:42:40 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:33:16 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 /*
 	Reverses `str`.
 */
-static void	revstr(char *str);
+static void		revstr(char *str);
 
 /*
 	Returns the absolute value of `nbr`.
 */
-static int	absolute(int nbr);
+static int		absolute(int nbr);
 
 /*
 	Returns the number of digits in nbr.
@@ -80,7 +80,7 @@ void	revstr(char *str)
 short	digitnum(int nbr)
 {
 	short	count;
-	
+
 	count = 0;
 	if (!nbr)
 		return (1);
