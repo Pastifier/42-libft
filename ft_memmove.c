@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:43:37 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 11:30:38 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/07 21:12:48 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 
 	dst_ptr = (unsigned char *)dst;
 	src_ptr = (unsigned char *)src;
-	if (!dst || !src)
+	if (!dst)
 		return (NULL);
-	if (dst_ptr == src_ptr)
+	if (dst_ptr == src_ptr || !src)
 		return (dst);
 	if (dst < src)
 		ft_memcpy(dst, src, n);
