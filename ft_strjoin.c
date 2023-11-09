@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:59:17 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/09 06:47:57 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:35:08 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,10 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	if (!self)
 		return (NULL);
 	dummy = self;
-	if (s1)
-		while (*s1)
-			*dummy++ = *s1++;
-	if (s2)
-		while (*s2)
-			*dummy++ = *s2++;
+	while (*s1)
+		*dummy++ = *s1++;
+	while (*s2)
+		*dummy++ = *s2++;
 	*dummy = 0;
 	return (self);
 }
