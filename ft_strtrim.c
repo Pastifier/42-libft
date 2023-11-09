@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:01:02 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/09 05:45:08 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/09 06:48:15 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 		end--;
 	self = malloc(sizeof(char) * (end - start + 1));
 	if (!self)
-	{
-		free(self);
 		return (NULL);
-	}
 	i = 0;
 	while (start < end)
 		self[i++] = s1[start++];
