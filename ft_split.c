@@ -50,10 +50,7 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	self = malloc((wordcount(s, c) + 1) * sizeof(char *));
 	if (!self)
-	{
-		free(self);
 		return (NULL);
-	}
 	successes = 0;
 	abort = ealloc(self, s, c, &successes);
 	if (abort)
