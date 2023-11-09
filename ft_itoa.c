@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:41:09 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/09 06:31:40 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/09 06:39:42 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int		absolute(int nbr);
 /*
 	Returns the number of digits in nbr.
 */
-static short	digitnum(int nbr);
+static int	digitnum(int nbr);
 
 char	*ft_itoa(int n)
 {
@@ -30,9 +30,10 @@ char	*ft_itoa(int n)
 
 	digits = digitnum(n);
 	sign = (n < 0);
-	self = ft_calloc(digits + sign + 1, sizeof(char));
+	self = malloc((digits + sign + 1) * sizeof(char));
 	if (!self)
 		return (NULL);
+	self[digits] = 0;
 	while (digits)
 	{
 		if (n < 0)
@@ -53,9 +54,9 @@ int	absolute(int nbr)
 	return (nbr);
 }
 
-short	digitnum(int nbr)
+int	digitnum(int nbr)
 {
-	short	count;
+	int	count;
 
 	count = 0;
 	if (!nbr)
