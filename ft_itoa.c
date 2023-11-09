@@ -6,16 +6,11 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:41:09 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/08 16:33:16 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/09 06:31:40 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-	Reverses `str`.
-*/
-static void		revstr(char *str);
 
 /*
 	Returns the absolute value of `nbr`.
@@ -31,26 +26,23 @@ char	*ft_itoa(int n)
 {
 	char	*self;
 	int		sign;
-	size_t	length;
+	size_t	digits;
 
+	digits = digitnum(n);
 	sign = (n < 0);
-	self = ft_calloc(digitnum(n) + sign + 1, sizeof(char));
+	self = ft_calloc(digits + sign + 1, sizeof(char));
 	if (!self)
 		return (NULL);
-	if (n == 0)
+	while (digits)
 	{
-		self[0] = '0';
-		return (self);
-	}
-	length = 0;
-	while (n)
-	{
-		self[length++] = '0' + absolute(n % 10);
+		if (n < 0)
+			self[digits--] = '0' + absolute(n % 10);
+		else
+			self[--digits] = '0' + absolute(n % 10);
 		n /= 10;
 	}
 	if (sign)
-		self[length] = '-';
-	revstr(self);
+		self[0] = '-';
 	return (self);
 }
 
@@ -59,22 +51,6 @@ int	absolute(int nbr)
 	if (nbr < 0)
 		return (-nbr);
 	return (nbr);
-}
-
-void	revstr(char *str)
-{
-	char	tmp;
-	size_t	len;
-	size_t	i;
-
-	len = ft_strlen(str);
-	i = -1;
-	while (++i < len / 2)
-	{
-		tmp = str[i];
-		str[i] = str[len - i - 1];
-		str[len - i - 1] = tmp;
-	}
 }
 
 short	digitnum(int nbr)

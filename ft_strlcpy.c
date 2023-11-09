@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:59:52 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/09 05:48:16 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/09 06:32:03 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t sz)
 {
-	int		i;
+	size_t	i;
 	size_t	src_len;
 
 	if (!sz)
@@ -22,9 +22,12 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t sz)
 	src_len = ft_strlen(src);
 	if (src_len > --sz)
 		src_len = sz;
-	i = -1;
-	while (++i < src_len)
+	i = 0;
+	while (i < src_len)
+	{
 		dst[i] = src[i];
+		++i;
+	}
 	dst[i] = 0;
 	return (ft_strlen(src));
 }
