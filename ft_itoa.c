@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:41:09 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/09 06:43:31 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/09 06:59:13 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 	Returns the absolute value of `nbr`.
 */
-static int		absolute(int nbr);
+static int	absolute(int nbr);
 
 /*
 	Returns the number of digits in nbr.
