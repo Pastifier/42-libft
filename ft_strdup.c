@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:45:28 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/09 05:42:54 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/09 06:45:42 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ char	*ft_strdup(const char *str)
 
 	self = malloc(sizeof(char) * (ft_strlen(str) + 1));
 	if (!self)
-	{
-		free(self);
 		return (NULL);
-	}
 	dummy = self;
 	while (*str)
 		*dummy++ = *((char *)str++);
