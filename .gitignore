@@ -1,5 +1,6 @@
 libft-unit-test
 *.o
+ft_lst*.o
 test.*
 libft.a
 test
