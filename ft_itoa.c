@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:41:09 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/09 06:39:42 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/09 06:43:31 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ char	*ft_itoa(int n)
 
 	digits = digitnum(n);
 	sign = (n < 0);
-	self = malloc((digits + sign + 1) * sizeof(char));
+	self = ft_calloc(digits + sign + 1, sizeof(char));
 	if (!self)
 		return (NULL);
-	self[digits] = 0;
 	while (digits)
 	{
 		if (n < 0)

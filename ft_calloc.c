@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:39:55 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/09 06:00:27 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/09 06:41:47 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ void	*ft_calloc(size_t nmemb, size_t n)
 	total_size = n * nmemb;
 	self = malloc(total_size);
 	if (!self)
-	{
-		free(self);
 		return (NULL);
-	}
 	ft_bzero(self, total_size);
 	return (self);
 }
