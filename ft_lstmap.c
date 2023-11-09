@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:27:30 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 11:30:09 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/09 17:18:41 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		self = ft_lstnew((*f)(lst->content));
 		if (!self)
 		{
+			free(self);
 			ft_lstclear(&head, del);
 			return (NULL);
 		}
