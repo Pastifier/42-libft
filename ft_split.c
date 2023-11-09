@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:45:14 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/08 15:34:52 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/09 05:45:54 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	self = malloc((wordcount(s, c) + 1) * sizeof(char *));
 	if (!self)
+	{
+		free(self);
 		return (NULL);
+	}
 	successes = 0;
 	abort = ealloc(self, s, c, &successes);
 	if (abort)

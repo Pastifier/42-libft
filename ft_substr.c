@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:01:21 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 11:33:09 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/09 05:44:22 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		len = ft_strlen(s) - start;
 	self = malloc(len + 1);
 	if (!self)
+	{
+		free(self);
 		return (NULL);
+	}
 	while (i < len)
 		self[i++] = s[start++];
 	self[i] = 0;
