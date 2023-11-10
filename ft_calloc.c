@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:39:55 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/10 21:06:24 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/10 21:14:56 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void	*ft_calloc(size_t nmemb, size_t n)
 	size_t	total_size;
 
 	if (!nmemb || !n)
-		return (NULL);
+	{
+		nmemb = 1;
+		n = 1;
+	}
 	if (nmemb > SIZE_MAX / n)
 		return (NULL);
 	total_size = n * nmemb;
