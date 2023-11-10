@@ -13,11 +13,11 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
-# include <stdbool.h>
-# include <unistd.h>
-# include <limits.h>
-# include <stdint.h>
+# include <stdlib.h>	// for malloc, free, size_t 
+# include <stdbool.h>	// for true, false
+# include <unistd.h>	// for write
+# include <limits.h>	// for INT_MIN, INT_MAX
+# include <stdint.h>	// for SIZE_MAX
 
 /************************************
  *                                  *
@@ -429,8 +429,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 
  * (Feeding it an invalid node or function pointer will cause it to do nothing).
  * (Using a non-deleting function is undefined behaviour).
- * (Deleting a node in the middle/start of the list, will cause a memory-leak;
- * since you won't be able to access the successive nodes anymore).
+ * (Deleting a node in the middle/start of the list, will cause a memory-leak
+ * if you're not careful; always link the next node with the previous one.
  */
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
