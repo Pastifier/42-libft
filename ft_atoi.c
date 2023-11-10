@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:39:03 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 11:27:36 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/10 18:15:17 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static bool	is_white(int c);
 
 int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	result;
+	int					sign;
+	unsigned long long	result;
 
 	while (is_white(*str))
 		str++;
@@ -37,6 +37,10 @@ int	ft_atoi(const char *str)
 		result = (result * 10) + ((char)(*str) - '0');
 		++str;
 	}
+	if (result >= POS_OVERFLOW && sign < 0)
+		return (0);
+	else if (result >= POS_OVERFLOW && sign > 0)
+		return (-1);
 	return (result * sign);
 }
 

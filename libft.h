@@ -12,6 +12,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define POS_OVERFLOW (9223372036854775808ULL)
 
 # include <stdlib.h>	// for malloc, free, size_t 
 # include <stdbool.h>	// for true, false
