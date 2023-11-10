@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:39:03 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/10 18:15:17 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/10 21:07:17 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	ft_atoi(const char *str)
 		result = (result * 10) + ((char)(*str) - '0');
 		++str;
 	}
-	if (result >= POS_OVERFLOW && sign < 0)
+	if (result >= 9223372036854775808 && sign < 0)
 		return (0);
-	else if (result >= POS_OVERFLOW && sign > 0)
+	else if (result >= 9223372036854775808 && sign > 0)
 		return (-1);
 	return (result * sign);
 }
