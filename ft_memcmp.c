@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:43:20 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/07 11:30:30 by ebinjama         ###   ########.fr       */
+/*   Updated: 2023/11/10 21:34:18 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_memcmp(const void *p1, const void *p2, size_t n)
 {
-	size_t			i;
+	int				i;
 	unsigned char	*p1_ptr;
 	unsigned char	*p2_ptr;
 
