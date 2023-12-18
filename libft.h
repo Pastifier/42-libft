@@ -397,7 +397,7 @@ t_list	*ft_lstnew(void *content);
  * (Feeding it an invalid `lst` pointer will cause it to do nothing).
  * (Feeding it an invalid node is undefined behaviour).
  */
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *to_add);
 
 /*
  * Takes the head and returns the number of nodes in the list.
@@ -421,7 +421,7 @@ t_list	*ft_lstlast(t_list *lst);
  * (If `lst` is invalid, it does nothing).
  * (Feeding it an invalid node is undefined behaviour).
  */
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *to_add);
 
 /* 
  * Takes a node and applies `del` to its contents (usually a deleting function)
