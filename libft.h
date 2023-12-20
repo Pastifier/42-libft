@@ -25,6 +25,7 @@
  *                                  *
  ************************************/
 
+typedef unsigned long long	t_ull;
 /*
 * Returns `1` if `c` is an alphabet, and `0` otherwise.
 *
@@ -164,6 +165,16 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t haylen);
  *                                  *
  ************************************/
 
+typedef struct s_error_int {
+	int		value;
+	bool	error;
+}	t_eint;
+
+typedef struct s_split_result {
+	char	**array;
+	size_t	wordcount;
+}	t_split;
+
 /*
  * Fill the first `n` bytes of memory the memory region
  	pointed to by `s` with zeroes(value).
@@ -264,7 +275,7 @@ void	*ft_calloc(size_t nmemb, size_t n);
  * EXAMPLE OF VALID INPUT:
  * "       -20001"
  */
-int		ft_atoi(const char *str);
+t_eint	ft_atoi(const char *str);
 
 /************************************
  *                                  *
@@ -308,7 +319,7 @@ char	*ft_strtrim(const char *s1, const char *set);
 	@param s: The string to split.
 	@param c: The delimiter character.
 */
-char	**ft_split(const char *s, char c); // check...
+t_split	ft_split(const char *s, char c); // check...
 
 /*
 	Converts an integer `n` to its ASCII representation,

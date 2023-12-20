@@ -16,36 +16,57 @@
 	Returns true if a character is whitespace.
 */
 static bool	is_white(int c);
+static bool	init_atoi(const char *str, int *pom, t_ull *res);
+static bool	is_permissible(int c);
 
-int	ft_atoi(const char *str)
+t_eint	ft_atoi(const char *str)
 {
 	int					sign;
 	unsigned long long	result;
 
-	while (is_white(*str))
-		str++;
-	sign = 1;
-	result = 0;
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			sign *= -1;
+	if (!init_atoi(str, &sign, &result))
+		return ((t_eint){.value = 0, .error = true});
+	while (is_permissible(*str))
 		++str;
-	}
 	while (ft_isdigit(*str))
 	{
 		result = (result * 10) + ((char)(*str) - '0');
 		++str;
 	}
-	if (result >= 9223372036854775808ULL && sign < 0)
-		return (0);
-	else if (result >= 9223372036854775808ULL && sign > 0)
-		return (-1);
-	return (result * sign);
+	if (result >= 9223372036854775807ULL && sign < 0)
+		return ((t_eint){.value = 0, .error = true});
+	else if (result >= 9223372036854775807ULL && sign > 0)
+		return ((t_eint){.value = -1, .error = true});
+	return ((t_eint){.value = result * sign, .error = false});
 }
 
 bool	is_white(int c)
 {
 	return (c == ' ' || c == '\t' || c == '\n'
 		|| c == '\r' || c == '\v' || c == '\f');
+}
+
+bool	init_atoi(const char *str, int *pom, t_ull *res)
+{
+	*pom = 1;
+	*res = 0;
+	while (is_white(*str))
+		str++;
+	if (*str == '-')
+		*pom *= -1;
+	if (*str == '-' || *str == '+')
+		++str;
+	if (!*str || *str == '-' || *str == '+'
+		|| is_white(*str))
+		return (false);
+	if (ft_strlen(str) > 10)
+		return (false);
+	return (true);
+}
+
+static bool	is_permissible(int c)
+{
+	return (c == ' ' || c == '\t' || c == '\n'
+		|| c == '\r' || c == '\v' || c == '\f'
+		|| c == '+' || c == '-');
 }

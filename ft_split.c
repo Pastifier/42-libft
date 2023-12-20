@@ -28,35 +28,38 @@ static int	wordlen(const char *str, char c);
 // Takes care of all the allocations. Returns `true` if
 // something went wrong; false otherwise.
 // `true` was chosen for failure to make ft_split more readable.
-// @param self_ptr: The address of the string array.
+// @param arr_ptr: The address of the string array.
 // @param str: The string to split.
 // @param success: The address of the variable storing the
 // 				   number of successful string allocations.
-static bool	ealloc(char **self_ptr, const char *str, char c, size_t *success);
+static bool	ealloc(char **arr_ptr, const char *str, char c, size_t *success);
 
 // Frees everything. Called upon failure (`allocate_each(...) == true`).
-// @param self_ptr: The address of the string array.
+// @param arr_ptr: The address of the string array.
 // @param successes: The number of successful allocations,
 // 					 i.e. the number of times to call `free`.
-static void	free_all(char **self_ptr, size_t successes);
+static void	free_all(char **arr_ptr, size_t successes);
 
-char	**ft_split(const char *s, char c)
+t_split	ft_split(const char *s, char c)
 {
-	char	**self;
+	t_split	self;
 	size_t	successes;
+	size_t	word_count;
 	bool	abort;
 
 	if (!s)
-		return (NULL);
-	self = malloc((wordcount(s, c) + 1) * sizeof(char *));
-	if (!self)
-		return (NULL);
+		return ((t_split){NULL, 0});
+	word_count = wordcount(s, c);
+	self.array = malloc((word_count + 1) * sizeof(char *));
+	self.wordcount = word_count;
+	if (!self.array)
+		return ((t_split){NULL, 0});
 	successes = 0;
-	abort = ealloc(self, s, c, &successes);
+	abort = ealloc(self.array, s, c, &successes);
 	if (abort)
 	{
-		free_all(self, successes);
-		return (NULL);
+		free_all(self.array, successes);
+		return ((t_split){NULL, 0});
 	}
 	return (self);
 }
@@ -92,7 +95,7 @@ int	wordlen(const char *str, char c)
 	return (i);
 }
 
-bool	ealloc(char **self_ptr, const char *str, char c, size_t *success)
+bool	ealloc(char **arr_ptr, const char *str, char c, size_t *success)
 {
 	int	i;
 	int	j;
@@ -105,29 +108,29 @@ bool	ealloc(char **self_ptr, const char *str, char c, size_t *success)
 	while (++i < wordnum)
 	{
 		j = -1;
-		self_ptr[i] = malloc((wordlen(str, c) + 1) * sizeof(char));
-		if (!self_ptr[i])
+		arr_ptr[i] = malloc((wordlen(str, c) + 1) * sizeof(char));
+		if (!arr_ptr[i])
 			return (true);
 		while (*str && *str != c)
-			self_ptr[i][++j] = *str++;
-		self_ptr[i][++j] = 0;
+			arr_ptr[i][++j] = *str++;
+		arr_ptr[i][++j] = 0;
 		while (*str == c && *str)
 			++str;
 		*success += 1;
 	}
-	self_ptr[i] = 0;
+	arr_ptr[i] = 0;
 	return (false);
 }
 
-void	free_all(char **self_ptr, size_t successes)
+void	free_all(char **arr_ptr, size_t successes)
 {
 	char	**dummy;
 
-	dummy = self_ptr;
+	dummy = arr_ptr;
 	while (successes--)
 	{
 		free(*dummy);
 		dummy++;
 	}
-	free(self_ptr);
+	free(arr_ptr);
 }
