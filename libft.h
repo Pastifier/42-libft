@@ -319,7 +319,7 @@ char	*ft_strtrim(const char *s1, const char *set);
 	@param s: The string to split.
 	@param c: The delimiter character.
 */
-t_split	ft_split(const char *s, char c); // check...
+t_split	ft_split(const char *s, char *charset);
 
 /*
 	Converts an integer `n` to its ASCII representation,

@@ -17,13 +17,13 @@
 // (A word is a sequence of characters preceding the delimiter: `c`).
 // @param str: The string to split.
 // @param c: The delimiter character.
-static int	wordcount(const char *str, char c);
+static int	wordcount(const char *str, char *charset);
 
 // Calculates the length of the first word in the string.
 // (A word is a sequence of characters preceding the delimiter: `c`).
 // @param str: The string to split.
 // @param c: The delimiter character.
-static int	wordlen(const char *str, char c);
+static int	wordlen(const char *str, char *charset);
 
 // Takes care of all the allocations. Returns `true` if
 // something went wrong; false otherwise.
@@ -32,7 +32,8 @@ static int	wordlen(const char *str, char c);
 // @param str: The string to split.
 // @param success: The address of the variable storing the
 // 				   number of successful string allocations.
-static bool	ealloc(char **arr_ptr, const char *str, char c, size_t *success);
+static bool	ealloc(char **arr_ptr, const char *str,
+				char *charset, size_t *success);
 
 // Frees everything. Called upon failure (`allocate_each(...) == true`).
 // @param arr_ptr: The address of the string array.
@@ -40,7 +41,7 @@ static bool	ealloc(char **arr_ptr, const char *str, char c, size_t *success);
 // 					 i.e. the number of times to call `free`.
 static void	free_all(char **arr_ptr, size_t successes);
 
-t_split	ft_split(const char *s, char c)
+t_split	ft_split(const char *s, char *charset)
 {
 	t_split	self;
 	size_t	successes;
@@ -49,13 +50,13 @@ t_split	ft_split(const char *s, char c)
 
 	if (!s)
 		return ((t_split){NULL, 0});
-	word_count = wordcount(s, c);
+	word_count = wordcount(s, charset);
 	self.array = malloc((word_count + 1) * sizeof(char *));
 	self.wordcount = word_count;
 	if (!self.array)
 		return ((t_split){NULL, 0});
 	successes = 0;
-	abort = ealloc(self.array, s, c, &successes);
+	abort = ealloc(self.array, s, charset, &successes);
 	if (abort)
 	{
 		free_all(self.array, successes);
@@ -64,7 +65,7 @@ t_split	ft_split(const char *s, char c)
 	return (self);
 }
 
-int	wordcount(const char *str, char c)
+int	wordcount(const char *str, char *charset)
 {
 	int	count;
 	int	flag;
@@ -73,9 +74,9 @@ int	wordcount(const char *str, char c)
 	flag = 0;
 	while (*str)
 	{
-		if (*str == c)
+		if (ft_strchr(charset, *str))
 			flag = 0;
-		else if (*str != c && !flag)
+		else if (!ft_strchr(charset, *str) && !flag)
 		{
 			flag = 1;
 			count++;
@@ -85,36 +86,36 @@ int	wordcount(const char *str, char c)
 	return (count);
 }
 
-int	wordlen(const char *str, char c)
+int	wordlen(const char *str, char *charset)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] && str[i] != c)
+	while (str[i] && !ft_strchr(charset, str[i]))
 		++i;
 	return (i);
 }
 
-bool	ealloc(char **arr_ptr, const char *str, char c, size_t *success)
+bool	ealloc(char **arr_ptr, const char *str, char *charset, size_t *success)
 {
 	int	i;
 	int	j;
 	int	wordnum;
 
-	while (*str && *str == c)
+	while (*str && ft_strchr(charset, *str))
 		++str;
 	i = -1;
-	wordnum = wordcount(str, c);
+	wordnum = wordcount(str, charset);
 	while (++i < wordnum)
 	{
 		j = -1;
-		arr_ptr[i] = malloc((wordlen(str, c) + 1) * sizeof(char));
+		arr_ptr[i] = malloc((wordlen(str, charset) + 1) * sizeof(char));
 		if (!arr_ptr[i])
 			return (true);
-		while (*str && *str != c)
+		while (*str && !ft_strchr(charset, *str))
 			arr_ptr[i][++j] = *str++;
 		arr_ptr[i][++j] = 0;
-		while (*str == c && *str)
+		while (ft_strchr(charset, *str) && *str)
 			++str;
 		*success += 1;
 	}
