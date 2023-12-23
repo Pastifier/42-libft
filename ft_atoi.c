@@ -42,8 +42,7 @@ t_eint	ft_atoi(const char *str)
 
 bool	is_white(int c)
 {
-	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\r' || c == '\v' || c == '\f');
+	return (c == ' ' || c == '\t' || c == '\n');
 }
 
 bool	init_atoi(const char *str, int *pom, t_ull *res)
@@ -67,6 +66,5 @@ bool	init_atoi(const char *str, int *pom, t_ull *res)
 static bool	is_permissible(int c)
 {
 	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\r' || c == '\v' || c == '\f'
 		|| c == '+' || c == '-');
 }
