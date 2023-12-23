@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 /*
 	Returns true if a character is whitespace.
@@ -33,9 +34,9 @@ t_eint	ft_atoi(const char *str)
 		result = (result * 10) + ((char)(*str) - '0');
 		++str;
 	}
-	if (result >= 9223372036854775807ULL && sign < 0)
+	if (result > INT_MAX + 1ULL && sign < 0)
 		return ((t_eint){.value = 0, .error = true});
-	else if (result >= 9223372036854775807ULL && sign > 0)
+	else if (result > INT_MAX && sign > 0)
 		return ((t_eint){.value = -1, .error = true});
 	return ((t_eint){.value = result * sign, .error = false});
 }
@@ -58,7 +59,7 @@ bool	init_atoi(const char *str, int *pom, t_ull *res)
 	if (!*str || *str == '-' || *str == '+'
 		|| is_white(*str))
 		return (false);
-	if (ft_strlen(str) > 10)
+	if (ft_strlen(str) > 20)
 		return (false);
 	return (true);
 }
