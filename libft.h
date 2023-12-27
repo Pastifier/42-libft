@@ -167,6 +167,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t haylen);
 
 typedef struct s_error_int {
 	int		value;
+	int		operations;
 	bool	error;
 }	t_eint;
 

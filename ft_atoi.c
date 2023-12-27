@@ -22,46 +22,60 @@ static bool	is_permissible(int c);
 
 t_eint	ft_atoi(const char *str)
 {
-	int					sign;
-	unsigned long long	result;
+	int		sign;
+	t_ull	result;
+	t_eint	self;
 
+	self = (t_eint){ 0, 0, 0};
+	result = 0;
+	sign = 1;
 	if (!init_atoi(str, &sign, &result))
-		return ((t_eint){.value = 0, .error = true});
+		return ((t_eint){.value = result, .error = true});
 	while (is_permissible(*str))
 		++str;
 	while (ft_isdigit(*str))
 	{
 		result = (result * 10) + ((char)(*str) - '0');
+		self.operations += 1;
 		++str;
 	}
+	if (*str || !self.operations)
+		self.error = true;
 	if (result > INT_MAX + 1ULL && sign < 0)
 		return ((t_eint){.value = 0, .error = true});
 	else if (result > INT_MAX && sign > 0)
 		return ((t_eint){.value = -1, .error = true});
-	return ((t_eint){.value = result * sign, .error = false});
-}
-
-bool	is_white(int c)
-{
-	return (c == ' ' || c == '\t' || c == '\n');
+	self.value = result * sign;
+	return (self);
 }
 
 bool	init_atoi(const char *str, int *pom, t_ull *res)
 {
-	*pom = 1;
-	*res = 0;
+	size_t	digits;
+
+	digits = 0;
 	while (is_white(*str))
 		str++;
 	if (*str == '-')
-		*pom *= -1;
+		*pom = -1;
 	if (*str == '-' || *str == '+')
 		++str;
 	if (!*str || *str == '-' || *str == '+'
 		|| is_white(*str))
 		return (false);
-	if (ft_strlen(str) > 20)
-		return (false);
+	--str;
+	while (*++str && ft_isdigit(*str))
+		++digits;
+	if (digits >= 20 && *pom > 0)
+		return (*res = -1, false);
+	if (digits >= 20 && *pom < 0)
+		return (*res = 0, false);
 	return (true);
+}
+
+bool	is_white(int c)
+{
+	return (c == ' ' || c == '\t' || c == '\n');
 }
 
 static bool	is_permissible(int c)
