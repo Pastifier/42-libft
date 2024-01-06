@@ -26,7 +26,7 @@ t_eint	ft_atoi(const char *str)
 	t_ull	result;
 	t_eint	self;
 
-	self = (t_eint){ 0, 0, 0};
+	self = (t_eint){0, 0, 0};
 	result = 0;
 	sign = 1;
 	if (!init_atoi(str, &sign, &result))
@@ -39,7 +39,7 @@ t_eint	ft_atoi(const char *str)
 		self.operations += 1;
 		++str;
 	}
-	if (*str || !self.operations)
+	if (self.operations < 1 || *str)
 		self.error = true;
 	if (result > INT_MAX + 1ULL && sign < 0)
 		return ((t_eint){.value = 0, .error = true});
@@ -63,6 +63,8 @@ bool	init_atoi(const char *str, int *pom, t_ull *res)
 	if (!*str || *str == '-' || *str == '+'
 		|| is_white(*str))
 		return (false);
+	while (*str == '0')
+		++str;
 	--str;
 	while (*++str && ft_isdigit(*str))
 		++digits;
