@@ -472,4 +472,28 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 	(`lst` must be a valid list).
 */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/*--------- ADD. FUNCS ----------*/
+
+/*-----const.defs-----*/
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif // !BUFFER_SIZE
+
+/*--------GNL--------*/
+
+// Takes in a file-descriptor and fetches
+// data from it line-by-line, call-by-call,
+// respectively.
+//
+// RETURN VALUES:
+// - The next line starting from the file-descriptor's
+// current read-offset
+// (offset starts from `0`, beggining of file).
+//
+// - NULL if the file-descriptor's offset is at EOF
+// or on error/failure.
+// @param fd: The file-descriptor in question.
+char	*get_next_line(int fd);
+
 #endif // !LIBFT_H

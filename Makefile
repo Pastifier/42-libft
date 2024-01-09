@@ -35,9 +35,7 @@ SRCS := ft_isalpha.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
-
-BONUS := ft_lstnew.c \
+		ft_putnbr_fd.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
@@ -45,12 +43,14 @@ BONUS := ft_lstnew.c \
 		ft_lstdelone.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
-		ft_lstmap.c
+		ft_lstmap.c \
+		ft_lstnew.c \
+		get_next_line.c
+
 
 HEADERS := libft.h
 
 OBJS := $(SRCS:.c=.o)
-OBONUS := $(BONUS:.c=.o)
 NAME := libft.a
 
 .PHONY: all clean fclean re bonus
@@ -70,6 +70,3 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean $(NAME)
-
-bonus: $(OBJS) $(OBONUS)
-	ar -rcs $(NAME) $(OBJS) $(OBONUS)
