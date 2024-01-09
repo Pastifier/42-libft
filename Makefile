@@ -1,8 +1,9 @@
 CC := cc
-CFLAGS = -Wall -Wextra -Werror -g3
+INCLUDES_DIR := includes
+CFLAGS = -Wall -Wextra -Werror -g3 -I$(INCLUDES_DIR)
 
 
-SRCS := ft_isalpha.c \
+SRC := ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
 		ft_isascii.c \
@@ -47,24 +48,27 @@ SRCS := ft_isalpha.c \
 		ft_lstnew.c \
 		get_next_line.c
 
+SRCS := $(addprefix srcs/,$(SRC))
+HEADERS := $(INCLUDES_DIR)/libft.h
 
-HEADERS := libft.h
-
-OBJS := $(SRCS:.c=.o)
+OBJS := $(addprefix objs/,$(SRC:.c=.o))
 NAME := libft.a
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re objs
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): | objs $(OBJS)
 	ar -rcs $@ $(OBJS)
 
-%.o: %.c $(HEADERS)
+objs:
+	mkdir -p objs
+
+objs/%.o: srcs/%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf objs
 
 fclean: clean
 	rm -rf $(NAME)
