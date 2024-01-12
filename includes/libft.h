@@ -391,6 +391,13 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+typedef struct s_node
+{
+	bool			bit;
+	struct s_node *next;
+	struct s_node *prev;
+}	t_node;
+
 /*
  * Initialises your list and returns a pointer to work with.
  * The node's value is represented by `content`.
