@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2024/01/14 10:08:45 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/01/14 17:07:56 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,13 +165,15 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t haylen);
  *                                  *
  ************************************/
 
-typedef struct s_error_int {
+typedef struct s_error_int
+{
 	int		value;
 	int		operations;
 	bool	error;
 }	t_eint;
 
-typedef struct s_split_result {
+typedef struct s_split_result
+{
 	char	**array;
 	size_t	wordcount;
 }	t_split;
