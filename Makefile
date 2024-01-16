@@ -54,12 +54,16 @@ HEADERS := $(INCLUDES_DIR)/libft.h
 OBJS := $(addprefix objs/,$(SRC:.c=.o))
 NAME := libft.a
 
+# Misc.
+RED := '\033[0;31m'
+GREEN := '\033[0;32m'
+DFLT := '\033[0m'
+
 .PHONY: all clean fclean re objs
 
 all: $(NAME)
 
 $(NAME): | objs $(OBJS)
-	@echo starting
 	@if ar -rcs $@ $(OBJS); then \
 		printf "\n$(GREEN)Success!$(DFLT)\n"; \
 	else \
