@@ -65,7 +65,7 @@ all: $(NAME)
 
 $(NAME): | objs $(OBJS)
 	@if ar -rcs $@ $(OBJS); then \
-		printf "\n$(GREEN)Success!$(DFLT)\n"; \
+		printf "\n$(GREEN)Compiled libft!$(DFLT)\n"; \
 	else \
 		printf "\n$(RED)Failed to compile libft.$(DFLT)\n"; \
 	fi
