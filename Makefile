@@ -68,9 +68,9 @@ objs/%.o: srcs/%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf objs
+	@rm -rf objs
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean $(NAME)
