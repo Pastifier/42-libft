@@ -59,10 +59,15 @@ NAME := libft.a
 all: $(NAME)
 
 $(NAME): | objs $(OBJS)
-	ar -rcs $@ $(OBJS)
+	@echo starting
+	@if ar -rcs $@ $(OBJS); then \
+		printf "\n$(GREEN)Success!$(DFLT)\n"; \
+	else \
+		printf "\n$(RED)Failed to compile libft.$(DFLT)\n"; \
+	fi
 
 objs:
-	mkdir -p objs
+	@mkdir -p objs
 
 objs/%.o: srcs/%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
