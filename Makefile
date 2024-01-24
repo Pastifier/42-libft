@@ -74,7 +74,7 @@ objs:
 	@mkdir -p objs
 
 objs/%.o: srcs/%.c $(HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf objs
