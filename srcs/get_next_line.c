@@ -6,31 +6,30 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 09:22:33 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/01 08:36:14 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/01 10:31:10 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-static t_gnl	read_till_done(int fd, char *trail);
-static char		*read_to_buff(int fd, char *self, char *trail, ssize_t *fetch);
-static char		*extract_line(char **from, char *trail);
+static char	*read_till_done(int fd, char *trail);
+static char	*read_to_buff(int fd, char *self, char *trail, ssize_t *fetch);
+static char	*extract_line(char **from, char *trail);
 
-t_gnl	get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	static char	trail[1024][BUFFER_SIZE + 1U];
-	t_gnl		line;
-	t_gnl		hold;
+	char		*line;
+	char		*hold;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (hold.str = NULL, hold.error = true, hold);
+		return (NULL);
 	trail[fd][BUFFER_SIZE] = 0;
 	hold = read_till_done(fd, trail[fd]);
-	if (!hold.str || hold.error)
+	if (!hold)
 		return (hold);
-	line.error = false;
-	line.str = extract_line(&hold.str, trail[fd]);
-	free(hold.str);
+	line= extract_line(&hold, trail[fd]);
+	free(hold);
 	return (line);
 }
 
@@ -56,7 +55,7 @@ char	*read_to_buff(int fd, char *self, char *trail, ssize_t *fetch)
 	while (*fetch > 0 && !ft_strchr(self, '\n'))
 	{
 		*fetch = read(fd, trail, BUFFER_SIZE);
-		if (*fetch == 0 && self && *self)
+		if (*fetch == 0)
 			return (self);
 		if (*fetch < 0)
 		{
@@ -71,18 +70,16 @@ char	*read_to_buff(int fd, char *self, char *trail, ssize_t *fetch)
 	return (self);
 }
 
-t_gnl	read_till_done(int fd, char *trail)
+char	*read_till_done(int fd, char *trail)
 {
-	t_gnl	self;
+	char	*self;
 	ssize_t	fetch;
 
-	self.str = NULL;
+	self = NULL;
 	if (*trail)
-		self.str = ft_strdup(trail);
+		self = ft_strdup(trail);
 	fetch = 1;
-	self.str = read_to_buff(fd, self.str, trail, &fetch);
-	if (fetch < 0)
-		self.error = true;
+	self = read_to_buff(fd, self, trail, &fetch);
 	return (self);
 }
 

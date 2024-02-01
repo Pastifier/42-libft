@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 18:00:56 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/08 14:00:42 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/01 10:40:36 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strrchr(const char *s, int c)
 	char	*store;
 
 	ptr = (char *)s;
+	if (!ptr)
+		return (NULL);
 	store = NULL;
 	while (*ptr)
 	{
