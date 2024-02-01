@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 09:22:33 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/12/11 22:30:38 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/01 08:36:14 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*read_to_buff(int fd, char *self, char *trail, ssize_t *fetch);
-static char	*read_till_done(int fd, char *trail);
-static char	*extract_line(char **from, char *trail);
+static t_gnl	read_till_done(int fd, char *trail);
+static char		*read_to_buff(int fd, char *self, char *trail, ssize_t *fetch);
+static char		*extract_line(char **from, char *trail);
 
-// TODO:
-// create a buffer for all your memory shenanigans.
-// free that buffer.
-// idk what else to say other than that you're handsome.
-char	*get_next_line(int fd)
+t_gnl	get_next_line(int fd)
 {
-	char		*line;
-	char		*hold;
 	static char	trail[1024][BUFFER_SIZE + 1U];
+	t_gnl		line;
+	t_gnl		hold;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (hold.str = NULL, hold.error = true, hold);
 	trail[fd][BUFFER_SIZE] = 0;
 	hold = read_till_done(fd, trail[fd]);
-	if (!hold)
-		return (NULL);
-	line = extract_line(&hold, trail[fd]);
-	free(hold);
+	if (!hold.str || hold.error)
+		return (hold);
+	line.error = false;
+	line.str = extract_line(&hold.str, trail[fd]);
+	free(hold.str);
 	return (line);
 }
 
@@ -61,7 +58,7 @@ char	*read_to_buff(int fd, char *self, char *trail, ssize_t *fetch)
 		*fetch = read(fd, trail, BUFFER_SIZE);
 		if (*fetch == 0 && self && *self)
 			return (self);
-		if (*fetch <= 0)
+		if (*fetch < 0)
 		{
 			ft_memset(trail, 0, BUFFER_SIZE);
 			return (free(self), NULL);
@@ -74,16 +71,18 @@ char	*read_to_buff(int fd, char *self, char *trail, ssize_t *fetch)
 	return (self);
 }
 
-char	*read_till_done(int fd, char *trail)
+t_gnl	read_till_done(int fd, char *trail)
 {
-	char	*self;
+	t_gnl	self;
 	ssize_t	fetch;
 
-	self = NULL;
+	self.str = NULL;
 	if (*trail)
-		self = ft_strdup(trail);
+		self.str = ft_strdup(trail);
 	fetch = 1;
-	self = read_to_buff(fd, self, trail, &fetch);
+	self.str = read_to_buff(fd, self.str, trail, &fetch);
+	if (fetch < 0)
+		self.error = true;
 	return (self);
 }
 

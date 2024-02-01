@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2024/02/01 05:13:47 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/01 08:34:00 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -496,6 +496,12 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /*--------GNL--------*/
 
+typedef struct s_gnl
+{
+	char	*str;
+	bool	error;
+}	t_gnl;
+
 // Takes in a file-descriptor and fetches
 // data from it line-by-line, call-by-call,
 // respectively.
@@ -508,6 +514,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 // - NULL if the file-descriptor's offset is at EOF
 // or on error/failure.
 // @param fd: The file-descriptor in question.
-char	*get_next_line(int fd);
+t_gnl	get_next_line(int fd);
 
 #endif // !LIBFT_H
