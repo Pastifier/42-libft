@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebinjama <ebinjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2024/01/14 17:07:56 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/01 05:13:47 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # include <unistd.h>	// for write
 # include <limits.h>	// for INT_MIN, INT_MAX
 # include <stdint.h>	// for SIZE_MAX
+# include <fcntl.h>		// for open, close,...
+
+// Mainly for open(2) stuff.
+# include <sys/types.h>
+# include <sys/stat.h>
 
 /************************************
  *                                  *
