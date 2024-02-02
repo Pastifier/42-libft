@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 09:22:33 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/01 10:42:26 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/01 11:09:33 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*get_next_line(int fd)
 	hold = read_till_done(fd, trail[fd]);
 	if (!hold)
 		return (hold);
-	line= extract_line(&hold, trail[fd]);
+	line = extract_line(&hold, trail[fd]);
 	free(hold);
 	return (line);
 }
