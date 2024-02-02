@@ -6,30 +6,34 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 09:22:33 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/01 11:09:33 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/03 01:08:03 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-static char	*read_till_done(int fd, char *trail);
-static char	*read_to_buff(int fd, char *self, char *trail, ssize_t *fetch);
-static char	*extract_line(char **from, char *trail);
+static t_gnl	read_till_done(int fd, char *trail);
+static char		*read_to_buff(int fd, char *self, char *trail, ssize_t *fetch);
+static t_gnl	extract_line(char **from, char *trail);
 
-char	*get_next_line(int fd)
+t_gnl	get_next_line(int fd)
 {
 	static char	trail[1024][BUFFER_SIZE + 1U];
-	char		*line;
-	char		*hold;
+	t_gnl		line;
+	t_gnl		hold;
 
+	line = (t_gnl){0};
+	hold = (t_gnl){0};
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (line.error = true, line);
 	trail[fd][BUFFER_SIZE] = 0;
 	hold = read_till_done(fd, trail[fd]);
-	if (!hold)
+	if (hold.error)
 		return (hold);
-	line = extract_line(&hold, trail[fd]);
-	free(hold);
+	if (!hold.line)
+		return (hold);
+	line = extract_line(&hold.line, trail[fd]);
+	free(hold.line);
 	return (line);
 }
 
@@ -70,16 +74,18 @@ char	*read_to_buff(int fd, char *self, char *trail, ssize_t *fetch)
 	return (self);
 }
 
-char	*read_till_done(int fd, char *trail)
+t_gnl	read_till_done(int fd, char *trail)
 {
-	char	*self;
+	t_gnl	self;
 	ssize_t	fetch;
 
-	self = NULL;
+	self = (t_gnl){0};
 	if (*trail)
-		self = ft_strdup(trail);
+		self.line = ft_strdup(trail);
 	fetch = 1;
-	self = read_to_buff(fd, self, trail, &fetch);
+	self.line = read_to_buff(fd, self.line, trail, &fetch);
+	if (fetch < 0)
+		self.error = true;
 	return (self);
 }
 
@@ -88,26 +94,28 @@ char	*read_till_done(int fd, char *trail)
 // (the trick you have in mind is using nl_address as a "bool").
 //
 // burn Norminette.
-char	*extract_line(char **from, char *trails)
+t_gnl	extract_line(char **from, char *trails)
 {
-	char	*into;
-	char	*nl_address;
+	t_gnl	self;
 	size_t	len;
+	char	*nl_address;
 
+	self = (t_gnl){0};
 	nl_address = ft_strchr(*from, '\n');
 	if (nl_address)
-		len = (size_t)(nl_address - *from + 1);
+		self.len = (size_t)(nl_address - *from + 1);
 	else
-		len = ft_strlen(*from);
-	into = malloc(sizeof(char) * (len + 1));
-	if (!into)
-		return (NULL);
-	into[len] = 0;
+		self.len = ft_strlen(*from);
+	len = self.len;
+	self.line = malloc(sizeof(char) * (len + 1));
+	if (!self.line)
+		return (self.error = true, self);
+	self.line[len] = 0;
 	while (len--)
-		into[len] = (*from)[len];
+		self.line[len] = (*from)[len];
 	if (nl_address && *(nl_address + 1))
 		ft_strncpy(trails, nl_address + 1, BUFFER_SIZE);
 	else
 		ft_memset(trails, 0, BUFFER_SIZE);
-	return (into);
+	return (self);
 }
