@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:17:38 by pastifier         #+#    #+#             */
-/*   Updated: 2024/02/03 00:47:36 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/04 02:03:46 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -501,8 +501,8 @@ typedef struct s_gnl
 	char	*line;
 	size_t	len;
 	bool	error;
+	bool	eof;
 }	t_gnl;
-
 
 // Takes in a file-descriptor and fetches
 // data from it line-by-line, call-by-call,

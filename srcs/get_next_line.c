@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 09:22:33 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/03 01:08:03 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/04 02:03:26 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,7 @@ t_gnl	extract_line(char **from, char *trails)
 		ft_strncpy(trails, nl_address + 1, BUFFER_SIZE);
 	else
 		ft_memset(trails, 0, BUFFER_SIZE);
+	if (nl_address)
+		return (self.len -= 1, self.eof = true, self);
 	return (self);
 }
