@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 09:22:33 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/02/06 10:08:27 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/02/06 10:09:50 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ t_gnl	read_till_done(int fd, char *trail)
 		self.line = ft_strdup(trail);
 	fetch = 1;
 	self.line = read_to_buff(fd, self.line, trail, &fetch);
+	if (fetch == 0)
+		self.eof = true;
 	if (fetch < 0)
 		self.error = true;
 	return (self);
