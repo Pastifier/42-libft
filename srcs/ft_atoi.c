@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:39:03 by ebinjama          #+#    #+#             */
-/*   Updated: 2023/11/10 21:11:20 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/06/14 03:08:30 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ bool	init_atoi(const char *str, int *pom, t_ull *res)
 {
 	size_t	digits;
 
+	if (!str || !(str && *str))
+		return (false);
 	digits = 0;
 	while (is_white(*str))
 		str++;
